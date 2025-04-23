@@ -5,6 +5,9 @@ export function fcfs(processes) {
     let currentTime = 0;
     const results = [];
     const gantt = [];
+// Estructura de gantt:
+// lista de diccionarios
+// gantt = [{ processId: 'P1', state: 'Exec', startTime: 0, endTime: 3 }, { processId: 'P2', state: 'Exec', startTime: 3, endTime: 6 }]
 
     readyQueue.push(...sortedProcesses);
 //ESTE NO ESTÁ FUNCIONANDO
@@ -132,12 +135,7 @@ export function fcfs(processes) {
             // Si no hay procesos listos, pero hay bloqueados, avanzar el tiempo
             if (blockedQueue.length > 0) {
                 currentTime++;
-                gantt.push({
-                    type: "wait",
-                    start: currentTime - 1,
-                    end: currentTime,
-                    pid: null
-                });
+                gantt.push({ processId: null, state: 'Wait', startTime: currentTime - 1, endTime: currentTime });
             } else {
                 break; // No hay nada que hacer, salir del bucle
             }
