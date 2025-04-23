@@ -115,7 +115,7 @@ function App() {
       <button onClick={handleRunSRTF}>Ejecutar SRTF</button>
       <button onClick={handleRunRR}>Ejecutar RR</button>
       {fcfsData && (<> <FCFSResult results={fcfsData.results} /> <GanttChart data={testData} /> </>)}
-      {sjfData && <SJFResult results={sjfData.results} />}
+      {sjfData && (<> <SJFResult results={sjfData.results} /> <GanttChart data={testData} /> </>)}
       {srtfData && <SRTFResult results={srtfData.results}/>}
       {rrData && <RRResult results={rrData.results} />}
     </div>
